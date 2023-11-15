@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <h1>enter the details</h1>
+            <div class="card px-5 py-5" id="form1" style="background-color:lightgreen">
+                <div class="form-data" v-if="!submitted">
+                    <form action="/admin/login/update" method="post">
+                    <input type="text" hidden name="id" value="{{prodect._id}}">
+                    <div class="forms-inputs mb-4"> <span> username</span> <input type="text" name="username" value="{{prodect.username}}" required>
+                        
+                    </div>
+                    <div class="forms-inputs mb-4"> <span>Password</span> <input  type="text" name="password" value="{{prodect.password}}" onfocus="this.value=''" required>
+                        
+                    </div>
+
+                    <div class="forms-inputs mb-4"> <span>acces:</span><br> <input  type="radio" name="acces" value="user" required>
+                    <label >user</label><br>
+                     <input  type="radio" name="acces" value="admin" required>
+                    <label >admin</label>   
+                    </div>
+
+    
+                    <div class="mb-3"> <button type="submit"  class="btn btn-dark w-100">update user</button> </div>
+                    </form>
+                </div>
+              
+</section>            
+            </div>
+        </div>
+    </div>
+</div>

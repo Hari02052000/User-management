@@ -1,0 +1,63 @@
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+
+<header>
+<nav class="navbar navbar-light bg-primary">
+  <span class="navbar-brand mb-0 h1">Admin panel</span>
+  <a href="/admin/login/addusers"><button>add users</button></a>
+  <a href="/admin/login/logout"><button>logout</button></a>
+</nav>
+</header>
+
+<div class="bg-secondary" style="height: 100vh; width: 100vw;" >
+
+<section class="container mt-4">
+  <h3>userinfo-table:</h3>
+</section>
+
+ <div class="container mt-4 bg-warning text-dark" >
+<table id="userTable">
+  <thead>
+    <tr>
+    
+      <th >username</th>
+      <th >password</th>
+      <th >acces</th>
+      <th >opt1</th>
+      <th >opt2</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+  {{#each users}}
+    <tr>
+      
+      <td>{{this.username}}</td>
+      <td>{{this.password}}</td>
+      <td>{{this.acces}}</td>
+      <td><a href="/admin/login/update/{{this._id}}" >update</a></td>
+      <td><a href="/admin/login/delete/{{this._id}}" onclick="return confirm('are you want to delete {{this.username}}')" style="color: red;">delete</a></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<script>
+$(document).ready( function () {
+    $('#userTable').DataTable();
+} );
+</script>
+
+
+
